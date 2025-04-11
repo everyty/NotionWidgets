@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flip Saat</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f0f0; }
+        .flip-clock { display: flex; font-family: Arial, sans-serif; }
+        .flip { width: 50px; height: 70px; margin: 5px; background: #fff; color: #000; font-size: 2em; line-height: 70px; text-align: center; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+    <div class="flip-clock" id="clock">
+        <div class="flip" id="h1">0</div>
+        <div class="flip" id="h2">0</div>
+        <div class="flip">:</div>
+        <div class="flip" id="m1">0</div>
+        <div class="flip" id="m2">0</div>
+        <div class="flip">:</div>
+        <div class="flip" id="s1">0</div>
+        <div class="flip" id="s2">0</div>
+    </div>
+    <script>
+        function updateFlipClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('h1').textContent = hours[0];
+            document.getElementById('h2').textContent = hours[1];
+            document.getElementById('m1').textContent = minutes[0];
+            document.getElementById('m2').textContent = minutes[1];
+            document.getElementById('s1').textContent = seconds[0];
+            document.getElementById('s2').textContent = seconds[1];
+        }
+        setInterval(updateFlipClock, 1000);
+        updateFlipClock();
+    </script>
+</body>
+</html>
